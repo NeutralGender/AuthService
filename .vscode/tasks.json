@@ -1,0 +1,57 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+
+                "-I ${fileDirname}/Include/DBDriver/",
+                "-I ${fileDirname}/Include/Network/",
+                "-I ${fileDirname}/Include/",
+                "-I ${fileDirname}/Include/CryptoAssymetric/",
+                "-I ${fileDirname}/Include/CryptoSymmetric/",
+                "-I ${fileDirname}/Include/CryptoHash/",
+
+                "${fileDirname}/Src/DBDriver/*.cpp",
+                "${fileDirname}/Src/Network/*.cpp",
+                "${fileDirname}/Src/CryptoAssymetric/*.cpp",
+                "${fileDirname}/Src/CryptoHash/*.cpp",
+                "${fileDirname}/Src/CryptoSymmetric/*.cpp",
+                "${fileDirname}/Src/*.cpp",
+
+                "${file}",
+                "-lpqxx",
+                "-pthread",
+                //"-lauth",
+                //"-L${fileDirname}/.",
+                "-lcrypto++",
+                "-o",
+                "${fileDirname}/main"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+g++ -I Include/DBDriver/ -I Include/Network/ -I Include/ -I Include/CryptoAssymetric/ -I Include/CryptoSymmetric/ -I Include/CryptoHash/ Src/DBDriver/*.cpp Src/Network/*.cpp Src/*.cpp main.cpp -lpqxx -pthread -lauth -L. -o main
